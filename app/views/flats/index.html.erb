@@ -1,1 +1,23 @@
-<H1>Hello world</H1>
+<H1>Simple Airbnb</H1>
+
+<div class="mb-3">
+  <table >
+    <tbody>
+      <% @flats.each do |flat| %>
+        <tr>
+          <td>
+            <div class="card mb-3">
+              <div class="card-header"><strong><%= flat.name %></strong></div>
+              <div class="card-body">
+                <p><strong>Adresse:</strong> <%= flat.address %></p>
+                <p><strong>Description:</strong> <%= flat.description %></p>
+                <p><strong>Prix par nuit:</strong> <%= "#{flat.price_per_night} €" %></p>
+                <p><strong>Nombre de personnes:</strong> <%= flat.number_of_guests %></p>
+              </div>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

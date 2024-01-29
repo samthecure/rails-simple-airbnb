@@ -42,7 +42,7 @@ Flat.create!(
   number_of_guests: 4
 )
 
-if Flat.create!
+if Flat.create
 puts 'La seed à bien été remplie'
 else
 puts 'Un problème est survenu lors de la création des entrées'
