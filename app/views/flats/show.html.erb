@@ -1,0 +1,59 @@
+
+ <div class="background-image" style="background-image: url('<%= @flat.picture_url %>');"></div>
+
+
+
+    <div class="row">
+  <div class="card  mb-3">
+          <div class="card-body text-center">
+            <h1 class="card-title "><i class="fas fa-home"></i> <%= @flat.name %> </h1>
+            <p class="card-text mt-3"><%= @flat.description %></p>
+      </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><i class="fas fa-map-marker-alt"></i> <strong>Adresse:</strong> <%= @flat.address %></li>
+              <li class="list-group-item"><i class="fas fa-euro-sign"></i> <strong>Prix par nuit:</strong> <%= @flat.price_per_night %> euros</li>
+              <li class="list-group-item"><i class="fa-solid fa-people-line"></i> <strong>Nombre de personnes:</strong> <%= @flat.number_of_guests %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h2 class="card-title"> <i class="fas fa-calendar-alt"></i> Réserver</h2>
+            <%= form_tag("/reserve", method: "post") do %>
+
+              <%= label_tag :start_date, "Date de début" %>
+              <%= date_field_tag :start_date, nil, class: "form-control mb-3" %>
+
+              <%= label_tag :end_date, "Date de fin" %>
+              <%= date_field_tag :end_date, nil, class: "form-control mb-3" %>
+
+              <div class="d-grid">
+                <%= submit_tag "Réserver", class: "btn btn-primary" %>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<style>
+
+  .background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    z-index: -1;
+    background-size: cover;
+    background-position: center;
+  }
+</style>

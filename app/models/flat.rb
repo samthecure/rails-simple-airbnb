@@ -1,13 +1,4 @@
 class Flat < ApplicationRecord
-  ATTRIBUTES_LABELS = {
-    name: "Nom",
-    address: "Adresse",
-    description: "Description",
-    price_per_night: "Prix par nuit",
-    number_of_guests: "Nombre de personnes"
-  }.freeze
-
-  ATTRIBUTES_LABELS.each do |attr, label|
-    validates attr, presence: { message: "#{label} ne peut pas être vide" }
-  end
+  validates :name, :address, :description, :price_per_night, :number_of_guests, presence: true
+  # validates :name, :address, uniqueness: true
 end

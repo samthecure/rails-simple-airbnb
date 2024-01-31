@@ -1,10 +1,10 @@
-<h1>Ajouter un nouveau bien</h1>
-
-<%= simple_form_for(@flat) do |f| %>
-<%= f.input :name %>
-<%= f.input :address %>
-<%= f.input :description %>
-<%= f.input :price_per_night %>
-<%= f.input :number_of_guests %>
-<%= f.submit class: "btn btn-primary" %>
-<% end %>
+<div class="row">
+  <div class="col-8 bg-light round m-auto pb-3 shadow-sm">
+    <div class="flat-form">
+      <h1 class="m-3 text-center">Ajouter un nouveau bien</h1>
+      <div class="mt-3">
+        <%= render "shared/form_flat" %>
+      </div>
+    </div>
+  </div>
+</div>

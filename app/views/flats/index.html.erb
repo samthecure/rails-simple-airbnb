@@ -1,23 +1,44 @@
-<H1>Simple Airbnb</H1>
+<div>
+<h1 class="m-3 text-center">Découvrez les <%= @flats.count %> biens disponibles ... </h1>
+</div>
+<div class="row">
+  <% @flats.each do |flat| %>
+    <div class="col-md-6 g-3  ">
+      <div class="flat-card shadow-sm mb-3">
+        <% if flat.picture_url.present? %>
+  <div class="flat-card-image">
+    <%= image_tag flat.picture_url, class: 'img-fluid rounded-top', style: 'object-fit: cover; height: 150px; width: 100%;', alt: flat.name %>
+  </div>
+<% end %>
+        <div class="flat-card-content mt-2 p-2">
 
-<div class="mb-3">
-  <table >
-    <tbody>
-      <% @flats.each do |flat| %>
-        <tr>
-          <td>
-            <div class="card mb-3">
-              <div class="card-header"><strong><%= flat.name %></strong></div>
-              <div class="card-body">
-                <p><strong>Adresse:</strong> <%= flat.address %></p>
-                <p><strong>Description:</strong> <%= flat.description %></p>
-                <p><strong>Prix par nuit:</strong> <%= "#{flat.price_per_night} €" %></p>
-                <p><strong>Nombre de personnes:</strong> <%= flat.number_of_guests %></p>
-              </div>
+          <div class="flat-card-title">
+            <h4><%= flat.name %></h4>
+          </div>
+
+          <p><i class="fas fa-map-marker-alt"></i> <%= flat.address %></p>
+
+          <div class="d-flex justify-content-center">
+            <div class="flex align-items-center">
+              <i class="fa-solid fa-people-line"></i>
+              <span><%= flat.number_of_guests %></span>
             </div>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+            <div class="flex align-items-center ms-3">
+              <i class="fa-solid fa-euro-sign"></i>
+              <span><%= flat.price_per_night %></span>
+            </div>
+          </div>
+
+          <%# link_to %>
+        </div>
+          <div class="card-footer d-flex justify-content-center mt-2">
+          <%= link_to 'Détails', flat_path(flat), class: 'card-link text-dark' %>
+          <%= link_to 'Modifier', edit_flat_path(flat), class: 'card-link text-dark'  %>
+          <%= link_to 'Supprimer', flat_path(flat), data: { turbo_method: :delete, turbo_confirm: "Voulez vous vraiment supprimer cette entrée ?"}, class: 'card-link text-dark'  %>
+
+
+          </div>
+      </div>
+    </div>
+  <% end %>
 </div>

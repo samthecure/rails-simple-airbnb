@@ -1,0 +1,16 @@
+<%= simple_form_for(@flat) do |f| %>
+
+      <%= f.input :name, placeholder: "'Exemple: Charmante maison avec jardin'", label: "Nom" %>
+      <%= f.input :address, placeholder: "'Exemple: 123 Rue de la République, Ville'", label: "Adresse" %>
+      <%= f.input :description, placeholder: "'Exemple: Spacieuse maison de 3 chambres avec vue panoramique'", label: "Description" %>
+      <%= f.input :picture_url, placeholder: "'Exemple: https://example.com/image.jpg'", label: "Adresse de l'image" %>
+
+      <div class="d-flex flex-row  justify-content-between ">
+      <%= f.input :price_per_night, placeholder: "'Exemple: 75.00'", label: "Prix par nuit" %>
+      <%= f.input :number_of_guests, placeholder: "'Exemple: 4'", label: "Nombre de personnes" %>
+      </div>
+      <div class="d-grid">
+      <%= f.submit "Créer", class: "btn btn-secondary" %>
+      </div>
+
+<% end %>
